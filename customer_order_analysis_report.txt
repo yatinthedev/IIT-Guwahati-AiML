@@ -1,0 +1,32 @@
+E-COMMERCE CUSTOMER ORDER ANALYSIS REPORT
+==================================================
+
+1. Executive Summary
+--------------------------------------------------
+Total Customers: 6
+Total Unique Products: 8
+Product Categories: Electronics, Home Essentials, Clothing
+Total Revenue: $2645
+
+2. Customer Classification
+--------------------------------------------------
+Alice: $820 (High-Value)
+Bob: $85 (Moderate)
+Charlie: $145 (High-Value)
+David: $600 (High-Value)
+Eva: $105 (High-Value)
+Frank: $890 (High-Value)
+
+3. Category-wise Revenue
+--------------------------------------------------
+Electronics: $2220
+Clothing: $170
+Home Essentials: $255
+
+4. Key Business Insights
+--------------------------------------------------
+Top 3 Spenders: [('Frank', 890), ('Alice', 820), ('David', 600)]
+Customers who purchased Electronics: ['Alice', 'David', 'Frank']
+Customers who bought from ALL categories: set()
+Customers who bought both Electronics and Clothing: set()
+Unique Products Sold: {'Mouse', 'Microwave', 'Shoes', 'T-Shirt', 'Vacuum Cleaner', 'Smartphone', 'Blender', 'Laptop'}
