@@ -1,0 +1,54 @@
+from fpdf import FPDF
+
+class PDF(FPDF):
+    def header(self):
+        self.set_font('Arial', 'B', 16)
+        self.set_text_color(0, 51, 102)  # dark blue
+        self.cell(0, 10, 'Analyzing Customer Orders Using Python', 0, 1, 'C')
+        self.ln(5)
+
+    def chapter_title(self, title):
+        self.set_font('Arial', 'B', 14)
+        self.set_text_color(0, 102, 204)  # medium blue
+        self.cell(0, 10, title, 0, 1)
+        self.set_text_color(0, 0, 0)  # black
+        self.ln(2)
+
+    def chapter_body(self, body):
+        self.set_font('Arial', '', 12)
+        self.multi_cell(0, 8, body)
+        self.ln()
+
+    def bullet_point(self, text):
+        self.set_font('Arial', '', 12)
+        self.cell(5)  # indent
+        self.cell(3, 5, '-')  # bullet replaced with dash
+        self.cell(2)  # space
+        self.multi_cell(0, 7, text)
+
+pdf = PDF()
+pdf.add_page()
+
+pdf.chapter_title('Overview')
+overview_text = ("This project analyzes customer purchase data for an e-commerce platform to extract actionable "
+                 "business insights. The implementation uses Python's core data structures - lists, tuples, dictionaries, "
+                 "and sets - along with loops and conditionals for data processing.")
+pdf.chapter_body(overview_text)
+
+pdf.chapter_title('Key Steps Performed')
+steps = [
+    "Data Storage: Organized sample customer orders in multiple formats for flexibility and quick retrieval.",
+    "Classification: Calculated each customer's total spending and categorized customers as High-Value, Moderate, or Low-Value buyers.",
+    "Category Analysis: Computed category-wise revenue, identified unique products, and determined customers purchasing across multiple categories.",
+    "Insights Generation: Found the top 3 highest-spending customers; listed customers buying both Electronics and Clothing; highlighted multi-category buyers.",
+    "Report Generation: Produced a structured, text-based report summarizing results for managers to support marketing and inventory decisions."
+]
+for step in steps:
+    pdf.bullet_point(step)
+
+pdf.chapter_title('Outcome')
+outcome_text = ("The analysis identified key spending patterns, profitable categories, and overlapping customer interests, "
+                "providing a foundation for data-driven decision-making in marketing campaigns and inventory planning.")
+pdf.chapter_body(outcome_text)
+
+pdf.output("customer_orders_analysis_designer.pdf")
